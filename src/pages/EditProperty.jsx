@@ -6,12 +6,9 @@ export default function EditProperty() {
     <div className="flex bg-slate-100 min-h-screen">
       <AdminSidebar />
 
-      {/* Main Content Area - Offsets fixed sidebar and bounds remaining screen width */}
-      <div 
-        style={{ marginLeft: "256px", width: "calc(100vw - 256px)" }} 
-        className="p-8 min-h-screen overflow-y-auto box-border"
-      >
-        <div className="max-w-4xl bg-white p-8 rounded-xl shadow-md border border-slate-200">
+      {/* flex-1 handles the remaining space naturally */}
+      <div className="flex-1 p-8 min-h-screen overflow-y-auto box-border">
+        <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md border border-slate-200">
           <h1 className="text-2xl font-bold text-slate-800 mb-6">
             Update Property
           </h1>

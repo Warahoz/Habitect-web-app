@@ -1,4 +1,5 @@
- import AdminSidebar from "../components/AdminSidebar";
+import React from "react";
+import AdminSidebar from "../components/AdminSidebar";
 import { useProperties } from "../context/PropertiesContext";
 
 const AdminDashboard = () => {
@@ -10,7 +11,8 @@ const AdminDashboard = () => {
     <div className="flex bg-gray-100 min-h-screen">
       <AdminSidebar />
 
-      <div className="flex-1 p-8">
+      {/* flex-1 smoothly takes up the rest of the screen right next to the sidebar */}
+      <div className="flex-1 p-8 overflow-y-auto">
         <h1 className="text-3xl font-bold mb-8">
           Admin Dashboard
         </h1>

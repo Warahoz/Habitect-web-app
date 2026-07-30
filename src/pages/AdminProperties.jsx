@@ -10,8 +10,8 @@ export default function AdminProperties() {
     <div className="flex bg-gray-100 min-h-screen w-full overflow-hidden">
       <AdminSidebar />
 
-      {/* Main Content with Margin Offset and Layout Bound */}
-      <div className="ml-64 flex-1 min-w-0 p-8 h-screen overflow-y-auto">
+      {/* Main Content Container with flex-1 to fill the remaining space naturally */}
+      <div className="flex-1 min-w-0 p-8 h-screen overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">Manage Properties</h1>
 

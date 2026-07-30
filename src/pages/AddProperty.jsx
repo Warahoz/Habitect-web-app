@@ -4,12 +4,12 @@ import AdminSidebar from "../components/AdminSidebar";
 export default function AddProperty() {
   return (
     <div className="flex h-screen w-screen bg-slate-100 overflow-hidden">
-      {/* Sidebar now sits naturally on the left */}
+      {/* Sidebar sits naturally on the left */}
       <AdminSidebar />
 
-      {/* Main Content Area automatically takes up the exact remaining space */}
+      {/* Main Content Area takes up the exact remaining space */}
       <div className="flex-1 h-screen overflow-y-auto p-8">
-        <div className="max-w-4xl bg-white p-8 rounded-xl shadow-md border border-slate-200">
+        <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md border border-slate-200">
           <h1 className="text-2xl font-bold text-slate-800 mb-6">
             Add New Property
           </h1>
