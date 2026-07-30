@@ -125,6 +125,7 @@ export default function UserDashboard() {
 
         </div>
 
+        {/* Logout always stays pinned at the bottom */}
         <button
           onClick={handleLogout}
           className="bg-red-600 hover:bg-red-700 rounded-lg py-3 font-semibold transition"

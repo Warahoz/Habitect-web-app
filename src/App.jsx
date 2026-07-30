@@ -34,7 +34,7 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* Public Routes */}
+        {/* Public Routes with Shared Navbar/Footer */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
@@ -60,7 +60,7 @@ function App() {
         <Route path="/admin/users" element={<ManageUsers />} />
         <Route path="/choose-role" element={<ChooseRole />} />
 
-        {/* 404 */}
+        {/* 404 Catch-All */}
         <Route path="*" element={<NotFound />} />
 
       </Routes>

@@ -42,7 +42,8 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-screen bg-slate-50/50 text-slate-900 font-sans">
 
-      <div className="w-64 bg-slate-950 p-5 flex flex-col justify-between text-slate-400 shrink-0">
+      {/* Fixed Navigation Panel */}
+      <div className="fixed top-0 left-0 h-screen w-64 bg-slate-950 p-5 flex flex-col justify-between text-slate-400 shrink-0 z-50">
         <div className="space-y-8">
           <div className="flex items-center gap-2 px-2">
             <span className="text-xl font-black text-white tracking-widest">HABITECT</span>
@@ -52,13 +53,17 @@ export default function Dashboard() {
           <nav className="space-y-1.5">
             <button
               onClick={() => setActiveTab('overview')}
-              className={`w-full text-left px-4 py-3 rounded-xl font-semibold text-sm transition ${activeTab === 'overview' ? 'bg-slate-900 text-white' : 'hover:bg-slate-900/40 hover:text-slate-200'}`}
+              className={`w-full text-left px-4 py-3 rounded-xl font-semibold text-sm transition ${
+                activeTab === 'overview' ? 'bg-slate-900 text-white' : 'hover:bg-slate-900/40 hover:text-slate-200'
+              }`}
             >
               📊 Overview Panel
             </button>
             <button
               onClick={() => setActiveTab('appointments')}
-              className={`w-full text-left px-4 py-3 rounded-xl font-semibold text-sm transition ${activeTab === 'appointments' ? 'bg-slate-900 text-white' : 'hover:bg-slate-900/40 hover:text-slate-200'}`}
+              className={`w-full text-left px-4 py-3 rounded-xl font-semibold text-sm transition ${
+                activeTab === 'appointments' ? 'bg-slate-900 text-white' : 'hover:bg-slate-900/40 hover:text-slate-200'
+              }`}
             >
               📅 My Appointments ({appointments.length})
             </button>
@@ -81,8 +86,8 @@ export default function Dashboard() {
         </button>
       </div>
 
-      <div className="flex-1 p-8 lg:p-12 overflow-y-auto">
-
+      {/* Main Panel Content */}
+      <div className="ml-64 flex-1 p-8 lg:p-12 overflow-y-auto h-screen">
         {activeTab === 'overview' && (
           <div className="space-y-6">
             <div>
@@ -160,7 +165,6 @@ export default function Dashboard() {
             </div>
           </div>
         )}
-
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import AdminSidebar from "../components/AdminSidebar";
 import { useProperties } from "../context/PropertiesContext";
 
@@ -57,8 +56,10 @@ const AddProperty = () => {
     navigate("/admin/properties");
   };
 
+export default function AddProperty() {
   return (
-    <div className="flex bg-gray-100 min-h-screen">
+    <div className="flex h-screen w-screen bg-slate-100 overflow-hidden">
+      {/* Sidebar now sits naturally on the left */}
       <AdminSidebar />
 
       <div className="flex-1 p-8">
@@ -164,6 +165,4 @@ const AddProperty = () => {
       </div>
     </div>
   );
-};
-
-export default AddProperty;
+}
