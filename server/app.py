@@ -29,6 +29,7 @@ def create_app():
     ma.init_app(app)
     cors.init_app(app)
     app.register_blueprint(auth_bp)
+    print(app.url_map)
 
     return app
 

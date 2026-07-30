@@ -16,6 +16,9 @@ def profile():
 
     user = User.query.get(user_id)
 
+    if not user:
+        return {"error": "User not found"}, 404
+
     return user_schema.jsonify(user)
 
 
@@ -26,6 +29,9 @@ def update_profile():
     user_id = get_jwt_identity()
 
     user = User.query.get(user_id)
+
+    if not user:
+        return {"error": "User not found"}, 404
 
     data = request.get_json()
 
