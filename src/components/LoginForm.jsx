@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -7,13 +7,13 @@ export default function LoginForm() {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  // we will replace with a real fetch() call once the Flask backend is wired up
-  if (email && password) {
-    navigate('/dashboard');
-  }
-};
+    // we will replace with a real fetch() call once the Flask backend is wired up
+    if (email && password) {
+      navigate('/dashboard');
+    }
+  };
 
   return (
     <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl max-w-md w-full mx-auto">
@@ -48,6 +48,25 @@ export default function LoginForm() {
           Sign In
         </button>
       </form>
+
+      {/* Admin Link Prompt */}
+      <div className="text-center mt-6 text-sm text-slate-600">
+        <span>Are you an administrator? </span>
+        <Link 
+          to="/admin/dashboard" 
+          className="font-bold text-amber-600 hover:text-amber-700 hover:underline transition"
+        >
+          Log in as Admin?
+        </Link>
+      </div>
+
+      {/* Registration Link */}
+      <div className="text-center text-sm text-slate-500 mt-3">
+        Don't have an account?{' '}
+        <Link to="/register" className="font-semibold text-slate-900 hover:underline">
+          Register Here
+        </Link>
+      </div>
     </div>
   );
 }
