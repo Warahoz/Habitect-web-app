@@ -10,6 +10,9 @@ from extensions import (
     ma,
     cors,
 )
+from models import User
+from routes.auth import auth_bp
+
 
 
 def create_app():
@@ -25,6 +28,7 @@ def create_app():
     bcrypt.init_app(app)
     ma.init_app(app)
     cors.init_app(app)
+    app.register_blueprint(auth_bp)
 
     return app
 
