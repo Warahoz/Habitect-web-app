@@ -42,11 +42,13 @@ const Navbar = () => {
 
         {/* Login Button */}
         <Link
-          to="/login"
-          className="bg-amber-600 text-white px-5 py-2 rounded hover:bg-amber-700 transition"
-        >
-          Login
-        </Link>
+
+  to="/choose-role"
+
+  className="bg-orange-500 text-white px-5 py-2 rounded">
+  Login
+
+</Link>
 
       </div>
     </header>

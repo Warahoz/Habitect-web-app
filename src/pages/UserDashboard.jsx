@@ -28,16 +28,18 @@ export default function UserDashboard() {
   });
 
   const handleCancelAppointment = (id) => {
-    const updatedAppointments = appointments.filter(
-      (appointment) => appointment.id !== id
-    );
+    
+      const updatedAppointments = appointments.filter(
+        (appointment) => appointment.id !== id
+      );
 
-    setAppointments(updatedAppointments);
+      setAppointments(updatedAppointments);
 
-    localStorage.setItem(
-      "appointments",
-      JSON.stringify(updatedAppointments)
-    );
+      localStorage.setItem(
+        "appointments",
+        JSON.stringify(updatedAppointments)
+      );
+    
   };
 
   const handleLogout = () => {
@@ -51,17 +53,24 @@ export default function UserDashboard() {
 
   return (
     <div className="min-h-screen flex bg-slate-100">
-      {/* Fixed Sidebar */}
-      <aside className="fixed top-0 left-0 h-screen w-64 bg-slate-950 text-white flex flex-col justify-between p-6 z-50">
+
+      {/* Sidebar */}
+
+      <aside className="w-64 bg-slate-950 text-white flex flex-col justify-between p-6">
+
         <div>
-          <h1 className="text-3xl font-bold mb-10">HABITECT</h1>
+
+          <h1 className="text-3xl font-bold mb-10">
+            HABITECT
+          </h1>
 
           <div className="space-y-2">
+
             <button
               onClick={() => setActiveTab("overview")}
-              className={`w-full text-left p-3 rounded-lg transition ${
+              className={`w-full text-left p-3 rounded-lg ${
                 activeTab === "overview"
-                  ? "bg-orange-500 font-semibold"
+                  ? "bg-orange-500"
                   : "hover:bg-slate-800"
               }`}
             >
@@ -70,9 +79,9 @@ export default function UserDashboard() {
 
             <button
               onClick={() => setActiveTab("properties")}
-              className={`w-full text-left p-3 rounded-lg transition ${
+              className={`w-full text-left p-3 rounded-lg ${
                 activeTab === "properties"
-                  ? "bg-orange-500 font-semibold"
+                  ? "bg-orange-500"
                   : "hover:bg-slate-800"
               }`}
             >
@@ -81,9 +90,9 @@ export default function UserDashboard() {
 
             <button
               onClick={() => setActiveTab("saved")}
-              className={`w-full text-left p-3 rounded-lg transition ${
+              className={`w-full text-left p-3 rounded-lg ${
                 activeTab === "saved"
-                  ? "bg-orange-500 font-semibold"
+                  ? "bg-orange-500"
                   : "hover:bg-slate-800"
               }`}
             >
@@ -92,9 +101,9 @@ export default function UserDashboard() {
 
             <button
               onClick={() => setActiveTab("appointments")}
-              className={`w-full text-left p-3 rounded-lg transition ${
+              className={`w-full text-left p-3 rounded-lg ${
                 activeTab === "appointments"
-                  ? "bg-orange-500 font-semibold"
+                  ? "bg-orange-500"
                   : "hover:bg-slate-800"
               }`}
             >
@@ -103,29 +112,33 @@ export default function UserDashboard() {
 
             <button
               onClick={() => setActiveTab("profile")}
-              className={`w-full text-left p-3 rounded-lg transition ${
+              className={`w-full text-left p-3 rounded-lg ${
                 activeTab === "profile"
-                  ? "bg-orange-500 font-semibold"
+                  ? "bg-orange-500"
                   : "hover:bg-slate-800"
               }`}
             >
               Profile
             </button>
+
           </div>
+
         </div>
 
         {/* Logout always stays pinned at the bottom */}
         <button
           onClick={handleLogout}
-          className="w-full bg-red-600 hover:bg-red-700 text-white rounded-lg py-3 font-semibold transition"
+          className="bg-red-600 hover:bg-red-700 rounded-lg py-3 font-semibold transition"
         >
           Logout
         </button>
+
       </aside>
 
-      {/* Bounded Scrollable Main Content Area */}
-      <main className="ml-64 flex-1 p-6 md:p-10 h-screen overflow-y-auto max-w-[calc(100vw-16rem)] overflow-x-hidden">
-        {/* Dashboard Overview */}
+      {/* Main Content */}
+
+      <main className="flex-1 p-10">
+        {/* Dashboard */}
         {activeTab === "overview" && (
           <>
             <h1 className="text-3xl font-bold">
@@ -136,7 +149,8 @@ export default function UserDashboard() {
               Here's a summary of your account.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+
               <div className="bg-white rounded-xl shadow p-6">
                 <h3 className="text-slate-500">Available Properties</h3>
                 <p className="text-4xl font-bold mt-3">
@@ -157,6 +171,7 @@ export default function UserDashboard() {
                   {appointments.length}
                 </p>
               </div>
+
             </div>
           </>
         )}
@@ -165,7 +180,10 @@ export default function UserDashboard() {
         {activeTab === "properties" && (
           <>
             <div className="flex justify-between items-center mb-8">
-              <h1 className="text-3xl font-bold">Explore Properties</h1>
+              <h1 className="text-3xl font-bold">
+                Explore Properties
+              </h1>
+
               <span className="text-slate-500">
                 {properties.length} Properties
               </span>
@@ -179,7 +197,10 @@ export default function UserDashboard() {
         {activeTab === "saved" && (
           <>
             <div className="flex justify-between items-center mb-8">
-              <h1 className="text-3xl font-bold">Saved Properties</h1>
+              <h1 className="text-3xl font-bold">
+                Saved Properties
+              </h1>
+
               <span className="text-slate-500">
                 {savedProperties.length} Saved
               </span>
@@ -192,8 +213,9 @@ export default function UserDashboard() {
                 <h2 className="text-2xl font-semibold">
                   No Saved Properties
                 </h2>
+
                 <p className="text-slate-500 mt-3">
-                  Click the save button on any property to save it.
+                  Click the ❤️ icon on any property to save it.
                 </p>
               </div>
             )}
@@ -203,7 +225,9 @@ export default function UserDashboard() {
         {/* Appointments */}
         {activeTab === "appointments" && (
           <>
-            <h1 className="text-3xl font-bold mb-8">My Appointments</h1>
+            <h1 className="text-3xl font-bold mb-8">
+              My Appointments
+            </h1>
 
             {appointments.length > 0 ? (
               <div className="space-y-5">
@@ -217,7 +241,10 @@ export default function UserDashboard() {
               </div>
             ) : (
               <div className="bg-white rounded-xl shadow p-10 text-center">
-                <h2 className="text-2xl font-semibold">No Appointments</h2>
+                <h2 className="text-2xl font-semibold">
+                  No Appointments
+                </h2>
+
                 <p className="text-slate-500 mt-3">
                   Book a property viewing to see your appointments here.
                 </p>
@@ -229,48 +256,67 @@ export default function UserDashboard() {
         {/* Profile */}
         {activeTab === "profile" && (
           <div className="bg-white rounded-xl shadow p-8 max-w-2xl">
-            <h1 className="text-3xl font-bold mb-8">My Profile</h1>
+
+            <h1 className="text-3xl font-bold mb-8">
+              My Profile
+            </h1>
 
             <div className="space-y-5">
+
               <div>
-                <label className="font-semibold block mb-2">Full Name</label>
+                <label className="font-semibold block mb-2">
+                  Full Name
+                </label>
+
                 <input
                   value={loggedUser.name}
                   readOnly
-                  className="w-full border rounded-lg p-3 bg-slate-50 text-slate-800"
+                  className="w-full border rounded-lg p-3 bg-slate-50"
                 />
               </div>
 
               <div>
-                <label className="font-semibold block mb-2">Email Address</label>
+                <label className="font-semibold block mb-2">
+                  Email Address
+                </label>
+
                 <input
                   value={loggedUser.email}
                   readOnly
-                  className="w-full border rounded-lg p-3 bg-slate-50 text-slate-800"
+                  className="w-full border rounded-lg p-3 bg-slate-50"
                 />
               </div>
 
               <div>
-                <label className="font-semibold block mb-2">Phone Number</label>
+                <label className="font-semibold block mb-2">
+                  Phone Number
+                </label>
+
                 <input
                   value={loggedUser.phone || "Not Added"}
                   readOnly
-                  className="w-full border rounded-lg p-3 bg-slate-50 text-slate-800"
+                  className="w-full border rounded-lg p-3 bg-slate-50"
                 />
               </div>
 
               <div>
-                <label className="font-semibold block mb-2">Member Since</label>
+                <label className="font-semibold block mb-2">
+                  Member Since
+                </label>
+
                 <input
                   value={loggedUser.memberSince || "New Member"}
                   readOnly
-                  className="w-full border rounded-lg p-3 bg-slate-50 text-slate-800"
+                  className="w-full border rounded-lg p-3 bg-slate-50"
                 />
               </div>
+
             </div>
           </div>
         )}
+
       </main>
     </div>
   );
 }
+      
