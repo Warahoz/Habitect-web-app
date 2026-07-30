@@ -30,7 +30,7 @@ const Navbar = () => {
             About
           </NavLink>
           
-                    <NavLink
+          <NavLink
             to="/contact"
             className={({ isActive }) =>
               isActive ? "text-amber-600" : "text-gray-700 hover:text-amber-600"
@@ -42,13 +42,11 @@ const Navbar = () => {
 
         {/* Login Button */}
         <Link
-
-  to="/choose-role"
-
-  className="bg-orange-500 text-white px-5 py-2 rounded">
-  Login
-
-</Link>
+          to="/login"
+          className="bg-amber-600 text-white px-5 py-2 rounded hover:bg-amber-700 transition"
+        >
+          Login
+        </Link>
 
       </div>
     </header>
